@@ -1,9 +1,5 @@
 # 🌊 FLOW — Learn Through the Journey
 
-<div align="center">
-
-![FLOW Banner](public/favicon.svg)
-
 ### **An immersive, gamified learning odyssey across floating celestial islands.**
 *Master modern programming concepts through interactive stories, real-time algorithmic visualizers, challenge dungeons, and PvP coding battles.*
 
