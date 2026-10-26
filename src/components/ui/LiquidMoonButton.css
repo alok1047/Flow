@@ -1,0 +1,141 @@
+/* ==========================================================================
+   LiquidMoonButton.css — Moonlit Water & Glassmorphism Button Styles
+   ========================================================================== */
+
+.liquid-moon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2.25rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: #fff;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 0 16px rgba(255, 255, 255, 0.03);
+  transition: 
+    border-color 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    color 0.4s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Wobbly Water Tension Background Layer */
+.liquid-moon-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.01);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Apply SVG liquid-button-filter when hovered to warp borders */
+.liquid-moon-btn.hovered .liquid-moon-bg {
+  filter: url(#liquid-button-filter);
+  transform: scale(1.02);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Spotlight that tracks the cursor coordinates */
+.liquid-moon-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: radial-gradient(
+    100px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(147, 197, 253, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+.liquid-moon-btn.hovered .liquid-moon-spotlight {
+  opacity: 1;
+}
+
+/* Hover Glowing & Moonlight reflections */
+.liquid-moon-btn:hover:not(.disabled) {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    0 12px 36px rgba(147, 197, 253, 0.18),
+    inset 0 0 20px rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Water Ripples Container */
+.liquid-ripples-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Expanded Ripple Ring Styles */
+.liquid-ripple {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  width: 100px;
+  height: 100px;
+}
+
+.ripple-hover {
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  background: radial-gradient(
+    circle, 
+    rgba(255, 255, 255, 0.08) 0%, 
+    rgba(147, 197, 253, 0.03) 70%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 12px rgba(147, 197, 253, 0.1);
+}
+
+.ripple-click {
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background: radial-gradient(
+    circle, 
+    rgba(255, 255, 255, 0.22) 0%, 
+    rgba(147, 197, 253, 0.12) 70%, 
+    transparent 100%
+  );
+  box-shadow: 0 0 25px rgba(147, 197, 253, 0.25);
+}
+
+/* Button Content Label styling */
+.liquid-moon-content {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  pointer-events: none;
+}
+
+/* Disabled State */
+.liquid-moon-btn.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}

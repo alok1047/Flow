@@ -1,0 +1,28 @@
+/* ===================================================
+   ShootingStar — Animated shooting star streaks
+   =================================================== */
+
+.shooting-star-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.6) 30%,
+    rgba(255, 255, 255, 1)
+  );
+  border-radius: 1px;
+  filter: blur(0.3px);
+  box-shadow:
+    0 0 6px 1px rgba(255, 255, 255, 0.4),
+    0 0 12px 2px rgba(200, 220, 255, 0.2);
+}

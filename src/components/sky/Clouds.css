@@ -1,0 +1,57 @@
+/* ===================================================
+   Clouds — Drifting cloud layer
+   =================================================== */
+
+.clouds {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.clouds__cloud {
+  position: absolute;
+  will-change: transform;
+  animation: drift-right linear infinite;
+}
+
+/* Cloud 1 — large, high */
+.clouds__cloud--1 {
+  top: 12%;
+  width: 280px;
+  height: 80px;
+  opacity: 0.18;
+  animation-duration: 90s;
+  animation-delay: -20s;
+}
+
+/* Cloud 2 — medium, mid */
+.clouds__cloud--2 {
+  top: 25%;
+  width: 220px;
+  height: 65px;
+  opacity: 0.25;
+  animation-duration: 110s;
+  animation-delay: -50s;
+}
+
+/* Cloud 3 — small, high */
+.clouds__cloud--3 {
+  top: 8%;
+  width: 180px;
+  height: 55px;
+  opacity: 0.15;
+  animation-duration: 75s;
+  animation-delay: -10s;
+}
+
+/* Cloud 4 — medium, lower */
+.clouds__cloud--4 {
+  top: 35%;
+  width: 250px;
+  height: 70px;
+  opacity: 0.3;
+  animation-duration: 120s;
+  animation-delay: -65s;
+}

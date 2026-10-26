@@ -1,0 +1,35 @@
+/* ===================================================
+   SoundToggle Component Styles
+   =================================================== */
+
+.sound-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: var(--z-toast);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: all var(--duration-normal) var(--ease-smooth);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sound-toggle:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.15);
+}
+
+.sound-toggle:active {
+  transform: scale(0.92);
+}

@@ -1,0 +1,51 @@
+/* ===================================================
+   Card Component Styles
+   =================================================== */
+
+.flow-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: 
+    border-color var(--duration-normal) var(--ease-smooth),
+    box-shadow var(--duration-normal) var(--ease-smooth),
+    transform var(--duration-normal) var(--ease-smooth);
+}
+
+/* Top glow line */
+.flow-card__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  opacity: 0.7;
+  transition: opacity var(--duration-normal) var(--ease-smooth),
+              filter var(--duration-normal) var(--ease-smooth);
+}
+
+/* Clickable card */
+.flow-card--clickable {
+  cursor: pointer;
+}
+
+/* Hover state (applied via CSS for non-motion fallback) */
+.flow-card--hoverable:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateY(-2px);
+  box-shadow: 
+    var(--shadow-lg), 
+    0 0 32px rgba(102, 126, 234, 0.08);
+}
+
+.flow-card--hoverable:hover .flow-card__glow {
+  opacity: 1;
+  filter: brightness(1.2);
+}

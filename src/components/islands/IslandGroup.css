@@ -1,0 +1,55 @@
+/* ===================================================
+   IslandGroup — Positions all islands over the ocean
+   =================================================== */
+
+.island-group {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  z-index: var(--z-islands);
+  pointer-events: none;
+}
+
+/* Container for all island elements */
+.island-group__container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual island positioning wrapper */
+.island-group__item {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+/* Paths overlay */
+.island-group__paths {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-paths);
+  pointer-events: none;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .island-group {
+    height: 35vh;
+  }
+
+  .island-group__item {
+    transform: translate(-50%, -50%) scale(0.85);
+  }
+}
+
+@media (max-width: 480px) {
+  .island-group__item {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}

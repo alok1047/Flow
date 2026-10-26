@@ -1,0 +1,17 @@
+/* ===================================================
+   ParticleField Component Styles
+   =================================================== */
+
+.particle-field {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-particles);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle-field__dot {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}

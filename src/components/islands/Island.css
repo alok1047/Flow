@@ -1,0 +1,224 @@
+/* ===================================================
+   Island — Floating island with grass, rocks, glow
+   =================================================== */
+
+.island {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.island--locked {
+  cursor: not-allowed;
+  filter: grayscale(0.6) brightness(0.6);
+}
+
+/* --- Island Body --- */
+.island__body {
+  position: relative;
+  width: 110px;
+  height: 56px;
+  animation: bob 5s ease-in-out infinite;
+}
+
+/* Grass top */
+.island__grass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(180deg, #4a8c3f 0%, #3a7233 50%, #2e5c28 100%);
+  border-radius: 50% 50% 40% 40% / 70% 70% 30% 30%;
+  z-index: 2;
+}
+
+/* Rock bottom */
+.island__rock {
+  position: absolute;
+  bottom: 0;
+  left: 8%;
+  width: 84%;
+  height: 55%;
+  background: linear-gradient(180deg, #5a4a3a 0%, #3d2e1f 60%, #2a1f14 100%);
+  border-radius: 30% 30% 50% 50% / 30% 30% 70% 70%;
+  z-index: 1;
+}
+
+/* Shadow beneath */
+.island__shadow {
+  position: absolute;
+  bottom: -10px;
+  left: 15%;
+  width: 70%;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  animation: bob 5s ease-in-out infinite;
+  animation-delay: -0.5s;
+}
+
+/* --- Glow Effect --- */
+.island__glow {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.island--active .island__glow {
+  opacity: 1;
+}
+
+/* --- Icon Badge --- */
+.island__icon-wrapper {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.island__icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: #1a1a1a;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.island__icon-symbol {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* React spinning atom */
+.island__icon-symbol--spin {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* --- Lock Overlay --- */
+.island__lock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: 28px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.island__lock-icon {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+/* --- Island Name --- */
+.island__name {
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.island--locked .island__name {
+  color: var(--text-muted);
+}
+
+/* --- Decorative Elements --- */
+.island__decor {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Tiny tree */
+.island__tree {
+  width: 8px;
+  height: 16px;
+  position: relative;
+}
+
+.island__tree-top {
+  width: 12px;
+  height: 10px;
+  background: #2d7a2d;
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: 0;
+  left: -2px;
+}
+
+.island__tree-trunk {
+  width: 3px;
+  height: 8px;
+  background: #5a3e28;
+  position: absolute;
+  bottom: 0;
+  left: 2.5px;
+  border-radius: 1px;
+}
+
+/* Crystal */
+.island__crystal {
+  width: 6px;
+  height: 12px;
+  clip-path: polygon(50% 0%, 100% 75%, 50% 100%, 0% 75%);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .island__body {
+    width: 80px;
+    height: 42px;
+  }
+
+  .island__icon-badge,
+  .island__icon-symbol {
+    width: 28px;
+    height: 28px;
+    font-size: var(--text-xs);
+  }
+
+  .island__name {
+    font-size: var(--text-xs);
+  }
+}

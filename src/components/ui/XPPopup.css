@@ -1,0 +1,36 @@
+/* ===================================================
+   XPPopup Component Styles
+   =================================================== */
+
+.xp-popup {
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: var(--z-toast);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.xp-popup__text {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  background: var(--glow-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  white-space: nowrap;
+  position: relative;
+}
+
+.xp-popup__sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  pointer-events: none;
+}

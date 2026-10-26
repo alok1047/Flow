@@ -1,0 +1,11 @@
+/* ===================================================
+   NightSky — Full-viewport sky composition
+   =================================================== */
+
+.night-sky {
+  position: absolute;
+  inset: 0;
+  background: var(--sky-gradient);
+  overflow: hidden;
+  z-index: 0;
+}
